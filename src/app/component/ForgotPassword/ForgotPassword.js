@@ -15,9 +15,12 @@ const ForgotPassword = () => {
 
   const onSubmit = (data) => {
     setErrorMessages("");
+    console.log("data.email", data.email);
     firebaseApp
       .auth()
+      // .confirmPasswordReset(data.email)
       .sendPasswordResetEmail(data.email)
+
       .then((u) => {
         console.log(u);
         alert("Email has been sent to you, please check and verify");
@@ -29,7 +32,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div>
+    <div className="login-body">
       <div className="logo">
         <img src={Logo} />
         &nbsp;
@@ -37,14 +40,16 @@ const ForgotPassword = () => {
       </div>
 
       <div className="text-center text">
-        <h4>Enter your username to receive a password reset email.</h4>
+        <h5 className="reset-password-heading">
+          Enter your username to receive a password reset email.
+        </h5>
       </div>
 
       <div className="loginPart text-center" style={{ height: "150px" }}>
         <div className="text-center">
           <span className="text-danger">{ErrorMessages}</span>
         </div>
-        <div className="">
+        <div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <TextField
               type="email"
@@ -72,10 +77,14 @@ const ForgotPassword = () => {
         </div>
       </div>
       <div className="creatAccountPart text-center">
-        <a href="/">
-          <p>Back to Login</p>
+        <a className="link_login" href="/">
+          <p style={{ fontSize: "17px", fontWeight: 500 }}>Back to Login</p>
         </a>
       </div>
+      <p className="footer">
+        <span>Trust Centre</span> <span>Report a Violation</span>
+        <span>Careers</span>
+      </p>
     </div>
   );
 };

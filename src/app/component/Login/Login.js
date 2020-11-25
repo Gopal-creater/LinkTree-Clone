@@ -28,26 +28,26 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-body">
       <div className="logo">
         <img src={Logo} />
         &nbsp;
-        <h1>Linktree</h1>
+        <h1>linktree</h1>
       </div>
 
       <div className="text-center text">
-        <h4>Log in to continue to your Linktree admin</h4>
+        <h5>Log in to continue to your Linktree admin</h5>
       </div>
 
       <div className="loginPart text-center" style={{ height: "500px" }}>
         <div className="instaButton">
           <Button
-            style={{ minWidth: "400px" }}
+            style={{ minWidth: "400px", fontWeight: "700", fontSize: "75%" }}
             color="default"
             variant="contained"
             startIcon={<InstagramIcon />}
           >
-            Instagram
+            Sign in with Instagram
           </Button>
         </div>
 
@@ -103,17 +103,21 @@ const Login = () => {
               Login
             </Button>
             <br></br>&nbsp;
-            <a href="/fotgotPassword">
+            <a className="link_login" href="/fotgotPassword">
               <p>Forgot your password? Click to reset</p>
             </a>
           </form>
         </div>
       </div>
       <div className="creatAccountPart text-center">
-        <a href="/signup">
+        <a className="link_login" href="/signup">
           <p>Don't have an account?</p>
         </a>
       </div>
+      <p className="footer">
+        <span>Trust Centre</span> <span>Report a Violation</span>
+        <span>Careers</span>
+      </p>
     </div>
   );
 };
